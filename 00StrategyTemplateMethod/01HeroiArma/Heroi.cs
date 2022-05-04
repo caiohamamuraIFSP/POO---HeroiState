@@ -1,7 +1,9 @@
 public class Heroi
 {
-    public Heroi() 
+    string arma;
+    public Heroi(string arma) 
     {
+        this.arma = arma;
     }
 
     public void Atacar()
@@ -14,28 +16,17 @@ public class Heroi
         System.Console.WriteLine();
     }
 
-    public virtual void AtaqueEspecifico() 
+    public void AtaqueEspecifico()
     {
-        System.Console.WriteLine("Você deu um soco!");
+        if (arma == "Espada")
+        {
+            System.Console.WriteLine("Golpeou com a espada");
+        }
+        else if (arma == "Arco")
+        {
+            System.Console.WriteLine("Atirou uma flecha");
+        }
     }
 
 
-}
-
-public class Espadachim : Heroi
-{
-
-    public override void AtaqueEspecifico()
-    {
-        System.Console.WriteLine("Golpeu com a espada!");
-    }
-}
-
-public class Arqueiro : Heroi
-{
-
-    public override void AtaqueEspecifico()
-    {
-        System.Console.WriteLine("Atirou uma flecha!");
-    }
 }
