@@ -1,7 +1,28 @@
+public interface IArma
+{
+    public void Ataque();
+}
+
+public class Espada : IArma
+{
+    public void Ataque()
+    {
+        System.Console.WriteLine("Golpeou com a espada!");
+    }
+}
+
+public class Arco : IArma
+{
+    public void Ataque()
+    {
+        System.Console.WriteLine("Atirou uma flecha!");
+    }
+}
+
 public class Heroi
 {
-    string arma;
-    public Heroi(string arma) 
+    public IArma arma;
+    public Heroi(IArma arma) 
     {
         this.arma = arma;
     }
@@ -10,23 +31,9 @@ public class Heroi
     {
         System.Console.WriteLine("Começou o ataque...");
 
-        AtaqueEspecifico();
+        arma.Ataque();
 
         System.Console.WriteLine("Terminou o ataque...");
         System.Console.WriteLine();
     }
-
-    public void AtaqueEspecifico()
-    {
-        if (arma == "Espada")
-        {
-            System.Console.WriteLine("Golpeou com a espada");
-        }
-        else if (arma == "Arco")
-        {
-            System.Console.WriteLine("Atirou uma flecha");
-        }
-    }
-
-
 }
